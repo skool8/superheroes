@@ -2,6 +2,8 @@ const express = require('express');
 const parser = require('body-parser');
 const server = express();
 
+const dispatcher = new(require('./src/domain/Dispatcher'))();
+
 server.use(parser.json());
 
 server.get('/', async (request, response) => {
@@ -11,17 +13,19 @@ server.get('/', async (request, response) => {
 });
 
 server.post('/registration', async (request, response) => {
-    const body = request.body;
+    const hero = request.body;
 
-    console.log({registration: body});
-    // Do something
+    console.log({registration: hero});
+
+    dispatcher.register(hero);
+
     response.send();
 });
 
 server.post('/event', async (request, response) => {
-    const body = request.body;
+    const event = request.body;
 
-    console.log({event: body});
+    console.log({event: event});
     // Do something
     response.send();
 });
@@ -29,8 +33,11 @@ server.post('/event', async (request, response) => {
 server.get('/interventionPlan', async(request, response) => {
     console.log("Intervention plan requested");
 
+    const plan = dispatcher.getInterventionPlan();
+    console.log(plan);
+
     response.json(
-        []
+        plan
     );
 });
 

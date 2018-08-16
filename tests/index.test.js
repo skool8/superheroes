@@ -51,7 +51,12 @@ describe('index', () => {
 
     describe('When calling the intervention plan endpoint', () => {
         it('Should return empty array', async () => {
-            const expected = [];
+            const expected = [
+                {
+                    "name": "Batman",
+                    "action": "standby"
+                }
+            ];
 
             const complete_request_options = Object.assign({
                 method: 'GET',
