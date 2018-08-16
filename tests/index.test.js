@@ -53,9 +53,9 @@ describe('index', () => {
         it('Should return empty array', async () => {
             const expected = [
                 {
-                    "name": "Batman",
-                    "location": "Batcave",
-                    "action": "standby"
+                    "hero": "Batman",
+                    "location": "New York",
+                    "action": "Prevent"
                 }
             ];
 
