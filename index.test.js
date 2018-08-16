@@ -33,4 +33,19 @@ describe('index', () => {
             expect(statusCode).to.equals(200);
         })
     });
+
+    describe('When calling the event endpoint', () => {
+        it('Should return 200 OK', async () => {
+            const complete_request_options = Object.assign({
+                uri: 'http://localhost:3000/event',
+                method: 'POST',
+                body: { type: "Flood", location: "New York" },
+                resolveWithFullResponse: true
+            }, partial_request_options);
+
+            const {statusCode} = await rp(complete_request_options);
+
+            expect(statusCode).to.equals(200);
+        })
+    });
 });
