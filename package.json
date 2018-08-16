@@ -5,7 +5,7 @@
   "main": "index.js",
   "scripts": {
     "start": "node index.js",
-    "test": "mocha --timeout 60000 tests/*/*.test.js"
+    "test": "mocha --timeout 60000 tests/*/*.test.js tests/*.test.js"
   },
   "author": "",
   "license": "ISC",
