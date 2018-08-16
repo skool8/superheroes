@@ -7,4 +7,10 @@ server.get('/', async (request, response) => {
   );
 });
 
+server.post('/registration', async (request, response) => {
+    const body = request.body;
+    // Do something
+    response.send();
+});
+
 server.listen(process.env.PORT || 3000);
