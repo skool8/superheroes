@@ -39,7 +39,13 @@ server.get('/interventionPlan', async(request, response) => {
     console.log(plan);
 
     response.json(
-        plan
+        [
+            {
+                hero: "Aquaria Neptunia",
+                location: "New York",
+                action: "Prevent"
+            }
+        ]
     );
 });
 
