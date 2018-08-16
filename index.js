@@ -17,7 +17,7 @@ server.post('/registration', async (request, response) => {
 
     console.log({registration: hero});
 
-    dispatcher.register(hero);
+    dispatcher.registerHero(hero);
 
     response.send();
 });
@@ -26,7 +26,9 @@ server.post('/event', async (request, response) => {
     const event = request.body;
 
     console.log({event: event});
-    // Do something
+
+    dispatcher.registerEvent(event);
+
     response.send();
 });
 
