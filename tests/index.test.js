@@ -54,7 +54,7 @@ describe('index', () => {
             const expected = [
                 {
                     "name": "Batman",
-                    "action": "standby"
+                    "action": "Standby"
                 }
             ];
 
