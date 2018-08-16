@@ -48,4 +48,18 @@ describe('index', () => {
             expect(statusCode).to.equals(200);
         })
     });
+
+    describe('When calling the intervention plan endpoint', () => {
+        it('Should return empty array', async () => {
+            const expected = [];
+
+            const complete_request_options = Object.assign({
+                method: 'GET',
+                uri: 'http://localhost:3000/interventionPlan'
+            }, partial_request_options);
+            const actual = await rp(complete_request_options);
+
+            expect(actual).to.deep.equal(expected);
+        })
+    });
 });

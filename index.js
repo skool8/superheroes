@@ -26,4 +26,12 @@ server.post('/event', async (request, response) => {
     response.send();
 });
 
+server.get('/interventionPlan', async(request, response) => {
+    console.log("Intervention plan requested");
+
+    response.json(
+        []
+    );
+});
+
 server.listen(process.env.PORT || 3000);
