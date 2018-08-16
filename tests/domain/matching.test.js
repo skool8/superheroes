@@ -10,18 +10,18 @@ describe('Dispatch', () => {
         };
 
         // when
-        dispatcher.register(hero);
+        dispatcher.registerHero(hero);
 
         // then
         const result = dispatcher.getInterventionPlan();
         expect(result).to.eql([
             {
                 name: 'Batman',
+                location: 'Batcave',
                 action: 'standby'
             }
         ])
     });
-
 
     it('when two heroes are registered intervention plan is standby', () => {
         // given
@@ -34,18 +34,46 @@ describe('Dispatch', () => {
         };
 
         // when
-        dispatcher.register(superman);
-        dispatcher.register(batman);
+        dispatcher.registerHero(superman);
+        dispatcher.registerHero(batman);
 
         // then
         const result = dispatcher.getInterventionPlan();
         expect(result).to.eql([
             {
                 name: 'Superman',
+                location: 'Batcave',
                 action: 'standby'
             },
             {
                 name: 'Batman',
+                location: 'Batcave',
+                action: 'standby'
+            }
+        ])
+    });
+
+    it('when a hero is registered and an event occurs find adequate intervention plan', () => {
+        // given
+        const dispatcher = new Dispatcher();
+        const superman = {
+            name: 'Superman'
+        };
+        const catastrophe = {
+            location: 'Batcave',
+            type: 'Flood'
+        }
+
+        // when
+        dispatcher.registerHero(superman);
+        dispatcher.registerEvent(catastrophe);
+
+        // then
+        const result = dispatcher.getInterventionPlan();
+        expect(result).to.eql([
+            {
+                name: 'Superman',
+                location: 'Batcave',
                 action: 'standby'
             }
         ])

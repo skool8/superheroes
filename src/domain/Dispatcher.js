@@ -1,14 +1,19 @@
 class Dispatcher {
     constructor() {
         this.heroes = [];
+        this.events = [];
     }
 
-    register (hero) {
+    registerHero (hero) {
         this.heroes.push(hero)
     }
 
+    registerEvent (catastrophe) {
+        this.events.push(catastrophe)
+    }
+
     getInterventionPlan() {
-        return this.heroes.map(hero => ({name: hero.name, action: 'standby'}));
+        return this.heroes.map(hero => ({name: hero.name, location: 'Batcave', action: 'standby'}));
     }
 }
 module.exports = Dispatcher;
