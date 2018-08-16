@@ -1,5 +1,8 @@
 const express = require('express');
+const parser = require('body-parser');
 const server = express();
+
+server.use(parser.json());
 
 server.get('/', async (request, response) => {
   response.json(
